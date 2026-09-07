@@ -2,6 +2,8 @@
 
 *And it won my region's Customer Zero Award for applied AI at work — August 2026.*
 
+Try it! Play https://super-agent-run-eng-ver.vercel.app
+
 ---
 
 ## The problem I kept seeing in AI workshops
