@@ -1,4 +1,4 @@
-# The AI ROI number that survives a CFO
+# The AI ROI number that survives multiple approval processes
 
 *Field note on why enterprise AI decisions stall at the finance-team review — and how a systematic, guardrailed methodology gets them unstuck.*
 
