@@ -1,48 +1,69 @@
-# The AI ROI number that survives multiple approval processes
+# Enterprise AI doesn't fail one review. It fails four.
 
-*Field note on why enterprise AI decisions stall at the finance-team review — and how a systematic, guardrailed methodology gets them unstuck.*
+*Field note on the multi-executive gate that quietly decides most enterprise AI investments — and how a systematic methodology answers every seat at the table.*
 
 ---
 
-## The pattern I kept running into
+## The moment AI investments actually die
 
-Enterprise AI pilots almost always produce a headline number. "We'll save X million a year." "Payback in six months." "Ten-times ROI."
+Enterprise AI vendor pitches usually optimize for one executive. Sometimes it's the CFO — a big ROI number, dollar savings, months to payback. Sometimes it's the CIO — architecture diagram, security posture, integration story. Sometimes it's the CMO — customer experience uplift, brand differentiation.
 
-Almost none of those numbers survive contact with the customer's finance team.
+The pitch lands with that one executive. The deal moves.
 
-Not because the technology doesn't work — it usually does. Not because the numbers are made up in bad faith. But because they're built the way vendor slideware has always been built: a single optimistic input, a linear extrapolation, no auditable source, no sensitivity, no explicit assumption ledger. A CFO sees that and correctly refuses to sign.
+Then it hits the review gate. And the review gate — in every large enterprise I've worked with — is not one person. It's a committee of four or five, and each of them is reading a different column of the same business case:
 
-The deal doesn't die at the demo. It dies at the business case review.
+- The **CFO** wants payback, downside scenario, and whether the number holds under attribution discounts.
+- The **CIO** wants investment breakdown, operational burden, and whether the platform's total cost is being disclosed honestly.
+- The **CRM / service leader** wants adoption rate, business-user impact, and evidence that peer companies actually got there.
+- The **CMO** wants customer experience uplift and whether the retention story is defensible.
+- The **HR / operations leader** wants headcount, onboarding time, and hours saved per employee.
 
-That gap — between *"AI works"* and *"the finance team will fund it in production"* — is where I've spent a lot of my recent time. I've now run AI ROI simulations and business-value cases for more than ten enterprise customers, across industries. The pattern is consistent enough that it deserves writing down.
+A business case tuned to one column dies in another. That's the actual reason so many pilots don't clear production approval — not because the technology failed, but because the case only spoke to one seat at the table.
 
-## What actually changed how I calculate it
+## What the case actually has to contain
 
-I run an internal Slackbot skill that produces Business Value Cases for enterprise AI deals — the same document the customer's CFO eventually reviews. The point isn't that it's automated. Automation is easy. The point is that every number the skill produces has to pass a set of non-negotiable guardrails *before* it lands on the page:
+Across ten-plus enterprise engagements running AI ROI simulations and business value cases, I've stopped trying to produce a single headline number. Instead, every case has to answer *categorically different* value types — because each executive at the review gate is looking for a different one:
 
-- **Min/Max verification on every driver.** Each value driver's calculated benefit is compared to a benchmark range. If it falls outside, the skill doesn't quietly drop it — it flags the result and documents why. If the formula can't be evaluated at all, that gets flagged too.
-- **Explicit source hierarchy on every input.** Structured CRM data first. Then account-channel discussions and internal notes. Then peer benchmarks (median of 3+ same-industry cases — never a single anchor, and individual customer names never exposed). Then template defaults. If a value still can't be sourced, it's marked *"requires customer input"* — never silently filled with a guess.
-- **Strict revalidation order when payback is off.** Ideal window is roughly 6–12 months, acceptable 3–18. If a case falls outside, validate assumptions first, then value drivers, then investment. Never inflate benefits first to hit a target.
-- **High-ROI flag.** Any case above 300% ROI is marked *"high sensitivity"* and must include a conservative counterpart. Any case where more than 40% of inputs are assumptions gets stamped *"directional only — not decision grade."*
-- **Attribution factors to prevent double-counting.** When multiple AI capabilities touch the same operational minute (e.g., handling-time reduction and case automation both saving the same seconds), an attribution discount is applied to the overlapping driver — typically 30–35% off — before anything is summed.
-- **Ramp discipline.** Year 1 benefit is conservatively de-rated (roughly 50–60%) to account for adoption ramp. Investment ramping applies only to consumption components, not to fixed licensing.
+- **Cost savings** — direct labor time reduction, automation-eligible volume, per-case processing cost. The CFO reads this hardest.
+- **Revenue creation / protection** — retention driven by faster response, wallet share preserved, lead conversion uplifted. Paired with an explicit attribution boundary (which revenue stream is actually being touched, and which is excluded on purpose). Read by the CMO and the CRM leader.
+- **Customer satisfaction** — response quality, first-contact resolution rate, self-service success. Measured, not asserted. Read by CMO and service leader.
+- **Employee productivity** — handling time, after-call work, knowledge search speed. Compared to a live operational baseline, not an industry average. Read by the operations leader.
+- **Working hours saved** — onboarding acceleration, ramp time, cognitive load reduction. Framed in FTE-equivalent terms. Read by HR and by any leader owning a large operational team.
 
-Those aren't cosmetic. They are the difference between a business case that survives finance-team review and one that comes back with red ink.
+Every one of those categories can be inflated. Every one of them will be inspected by the executive whose column it lives in. Which is why *the same guardrails* have to apply across all of them — or the whole case unravels when one thread gets pulled.
+
+## The methodology I actually run
+
+I run an internal Slackbot skill that produces Business Value Cases for enterprise AI deals — the document that goes into the multi-executive review. Every number it emits has to pass the same non-negotiable guardrails, applied uniformly regardless of which value type it belongs to:
+
+- **Min/Max verification per driver.** Each calculated benefit is compared to a benchmark range. Falls outside → flagged with reason, not silently dropped.
+- **Source hierarchy on every input.** Structured CRM data first, then internal discussions and notes, then peer benchmarks (median of 3+ same-industry cases, never a single anchor, individual customer names never exposed), then template defaults. Still unsourced → marked "requires customer input," never guessed.
+- **Attribution factors to prevent double-counting.** When multiple AI capabilities touch the same operational minute, an attribution discount is applied to the overlapping driver before summing.
+- **Ramp discipline.** Year 1 benefit conservatively de-rated (roughly 50–60%) for adoption ramp. Investment ramping applies only to consumption components, not to fixed licensing.
+- **Strict revalidation order when payback is off.** Validate assumptions first, then value drivers, then investment. Never inflate benefits to hit a target.
+- **High-ROI flag.** Anything above 300% ROI requires a conservative counterpart. Above 40% assumption-based inputs → stamped "directional only — not decision grade."
+- **Downside/base/upside on every driver that has one.** Because the CFO always asks, and the CRM leader wants to know whether the base case survives slower adoption.
+
+The point isn't that the skill is automated. Automation is easy. The point is that every value type — cost, revenue, CX, productivity, hours — gets treated with the same discipline, so no single reviewer can pull a thread and unravel the document.
 
 ## What this looks like on a real deal
 
-Across ten-plus enterprise engagements, one recent one is a good illustration: the AI call-center evaluation for a global enterprise's regional operation — the kind of engagement where the buying decision sits with a finance-and-IT steering committee, not with the operational team excited by the demo.
+On the AI call-center evaluation for a global enterprise's regional operation — the kind of engagement where the buying decision sat with a multi-executive steering committee, not with the operational team excited by the demo — the output was five value drivers, each written for a specific reader:
 
-The output wasn't a single big number. It was five value drivers, each with an explicit formula, a stated assumption, an attribution factor for overlapping benefits, a three-year ramp with Year 1 de-rated, and downside/base/upside scenarios. Even the *downside* case paid back inside the finance team's acceptable window. That's the sentence a CFO actually cares about.
+- Handling-time reduction — for the **operations leader**
+- Case automation — for the **CFO's cost column**
+- Onboarding acceleration — for the **HR leader**
+- Customer retention through faster response — for the **CMO / service leader**
+- First-contact resolution improvement — for the **customer service leader**
 
-What made the case credible wasn't the size of the ROI number. It was the four conservative adjustments applied *before* presenting anything: attribution capped on the largest driver, revenue-protection benefit restricted to a single defensible retention mechanism (broader repurchase revenue excluded on purpose), Year 1 explicitly ramped down, and the automated-case volume removed from the human-processing base so the same minutes weren't counted twice.
+Every driver had an explicit formula, a stated assumption, an attribution boundary, downside/base/upside, and a live-data baseline. The four conservative adjustments were applied *before* presenting anything, not after pushback: attribution capped on the largest driver, revenue-protection restricted to a single defensible retention mechanism, Year 1 explicitly ramped down, automated-case volume removed from the human-processing base so the same minutes weren't counted twice.
 
-That's what *"systematic"* means in practice. It's not a bigger spreadsheet. It's *fewer* places where a hostile reviewer can plant a flag.
+Even the *downside* scenario cleared the finance column's acceptable payback window. The CIO could point at the investment breakdown line item. The CRM leader saw the peer benchmark citations. The CMO had a defensible retention number. Nobody had to trust a single vendor slide.
 
 ## Why I keep working on this
 
-The single most consistent reason large-enterprise AI initiatives stall is that the business case can't be defended by the customer's own finance team. Vendors keep trying to solve that with bigger numbers. That's the wrong lever.
+The single most consistent reason large-enterprise AI initiatives stall isn't that the model doesn't work. It's that the business case only speaks to one executive, and the deal has to clear four.
 
-The lever is trust — built through a methodology the reviewer can walk through end-to-end, see every assumption, and either accept or challenge on its merits. Every number cited. Every gap named, not hidden. Every optimistic input paired with a downside scenario.
+Vendors keep trying to solve that by making the number bigger. That's the wrong lever. The right lever is producing a case that every reviewer can walk through end-to-end, find their column, see the assumptions, and either accept them or challenge them on their own terms. Cost savings for the CFO. Adoption reality for the CRM leader. Experience uplift for the CMO. Hours saved for the operations leader. All in the same document, all held to the same standard of evidence.
 
-Enterprise AI doesn't get funded by the biggest number in the deck. It gets funded by the number a CFO can defend to their board on a Monday morning.
+That's what turns *"AI works"* into *"AI is funded in production."*
