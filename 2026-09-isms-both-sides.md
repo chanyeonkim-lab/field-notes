@@ -30,6 +30,6 @@ Most vendor pitches ignore all of this — until the customer's security team dr
 
 ## Why I keep working on this
 
-I'm not a lawyer and I'm not a security consultant. But I've done enough of the drafting, sat through enough of the interviews, and worked alongside enough specialized legal and security-review firms that ISMS doesn't scare me. I can usually tell within a first conversation whether a new AI solution has a real path through it, or whether the deal will die at the review stage.
+I'm not a security consultant. But I've done enough of the drafting, sat through enough of the interviews, and worked alongside enough specialized legal and security-review firms that ISMS doesn't scare me. I can usually tell within a first conversation whether a new AI solution has a real path through it, or whether the deal will die at the review stage.
 
 The bottleneck on enterprise AI in Korea is rarely the model. It's the translation between what the technology actually does and what a Korean auditor needs to hear to sign the certification. That translation layer is where I've spent a lot of years — and it's what I want to keep working on.
