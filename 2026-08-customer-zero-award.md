@@ -40,6 +40,6 @@ Code (English version): [chanyeonkim-lab/super-agent-run-v2](https://github.com/
 
 The tool won my region's **Customer Zero Award** — internal recognition given to the Solution Engineer who most effectively applied AI to their own work.
 
-The bigger takeaway isn't the award. It's that a non-engineer SE can now design, build, and deploy the actual tool a customer experiences — because Claude Code has moved the ceiling. Enablement stops being a slide deck. It becomes something you ship.
+The bigger takeaway isn't the award. It's that a solution engineer can now design, build, and deploy the actual tool a customer experiences — because Claude Code has moved the ceiling. Enablement stops being a slide deck. It becomes something you ship.
 
 This sits alongside a company-wide Claude "vibe coding" training I designed for ~50 Salesforce Korea colleagues earlier this year. Same instinct, different form factor: the fastest path to AI adoption is putting people in a position where they've already used it once.
